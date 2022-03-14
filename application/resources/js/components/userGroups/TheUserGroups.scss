@@ -1,0 +1,81 @@
+@import "@/config.scss";
+
+.the-user-groups {
+    &__header {
+        flex-direction: column;
+    }
+
+    & &__tab-content {
+        .p-datatable {
+            &-header {
+                display: flex;
+                padding: $spacer;
+                border-top: unset;
+                border-radius: unset;
+            }
+        }
+    }
+
+    &__id,
+    &__action {
+        &-body {
+            text-align: center;
+        }
+    }
+
+    &__id-header {
+        width: 5em;
+    }
+
+    &__action {
+        &-header {
+            width: 8em;
+        }
+        &-body .pi {
+            font-size: 1.5em;
+        }
+    }
+
+    /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ .p-dialog ~~~ */
+
+    & .p-dialog {
+        min-width: 20em;
+
+        &-footer {
+            text-align: right;
+
+            button:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__remove-dialog .p-dialog-content {
+        text-align: center;
+    }
+
+    /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ .p-tree ~~~ */
+
+    .p-tree {
+        padding: 0;
+        border: unset;
+    }
+
+    /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ __edit-form ~~~ */
+
+    &__edit-form {
+        > .row {
+            flex-direction: column;
+            margin-bottom: $spacer;
+        }
+
+        .p-inputtext,
+        table {
+            width: 100%;
+        }
+
+        &__buttons .col {
+            text-align: right;
+        }
+    }
+}

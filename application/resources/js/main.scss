@@ -1,0 +1,400 @@
+@import "@/config.scss";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('assets/fonts/segoeui/SegoeUI-BoldItalic.eot');
+    src: local('assets/fonts/segoeui/Segoe UI Bold Italic'), local('assets/fonts/segoeui/SegoeUI-BoldItalic'),
+    url('assets/fonts/segoeui/SegoeUI-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/segoeui/SegoeUI-BoldItalic.woff2') format('woff2'),
+    url('assets/fonts/segoeui/SegoeUI-BoldItalic.woff') format('woff'),
+    url('assets/fonts/segoeui/SegoeUI-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('assets/fonts/segoeui/SegoeUI.eot');
+    src: local('assets/fonts/segoeui/Segoe UI'), local('assets/fonts/segoeui/SegoeUI'),
+    url('assets/fonts/segoeui/SegoeUI.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/segoeui/SegoeUI.woff2') format('woff2'),
+    url('assets/fonts/segoeui/SegoeUI.woff') format('woff'),
+    url('assets/fonts/segoeui/SegoeUI.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('assets/fonts/segoeui/SegoeUI-SemiBold.eot');
+    src: local('assets/fonts/segoeui/Segoe UI Semibold'), local('assets/fonts/segoeui/SegoeUI-SemiBold'),
+    url('assets/fonts/segoeui/SegoeUI-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/segoeui/SegoeUI-SemiBold.woff2') format('woff2'),
+    url('assets/fonts/segoeui/SegoeUI-SemiBold.woff') format('woff'),
+    url('assets/fonts/segoeui/SegoeUI-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('assets/fonts/segoeui/SegoeUI-Light.eot');
+    src: local('assets/fonts/segoeui/Segoe UI Light'), local('assets/fonts/segoeui/SegoeUI-Light'),
+    url('assets/fonts/segoeui/SegoeUI-Light.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/segoeui/SegoeUI-Light.woff2') format('woff2'),
+    url('assets/fonts/segoeui/SegoeUI-Light.woff') format('woff'),
+    url('assets/fonts/segoeui/SegoeUI-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('assets/fonts/segoeui/SegoeUI-Bold.eot');
+    src: local('assets/fonts/segoeui/Segoe UI Bold'), local('assets/fonts/segoeui/SegoeUI-Bold'),
+    url('assets/fonts/segoeui/SegoeUI-Bold.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/segoeui/SegoeUI-Bold.woff2') format('woff2'),
+    url('assets/fonts/segoeui/SegoeUI-Bold.woff') format('woff'),
+    url('assets/fonts/segoeui/SegoeUI-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('assets/fonts/segoeui/SegoeUI-Italic.eot');
+    src: local('assets/fonts/segoeui/Segoe UI Italic'), local('assets/fonts/segoeui/SegoeUI-Italic'),
+    url('assets/fonts/segoeui/SegoeUI-Italic.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/segoeui/SegoeUI-Italic.woff2') format('woff2'),
+    url('assets/fonts/segoeui/SegoeUI-Italic.woff') format('woff'),
+    url('assets/fonts/segoeui/SegoeUI-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+html {
+    font-size: $font-size;
+    font-family: 'Segoe UI';
+}
+
+html,
+body,
+.app {
+    min-width: 540px;
+    height: 100%;
+    background-color: #f1f3f6;
+    overflow-y: auto;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.breadcrumb-item > a {
+    color: #4e4e4e;
+    text-decoration: underline;
+    font-weight: lighter;
+}
+
+.breadcrumb-item.active {
+    color: #20226a;
+}
+
+
+//#4e4e4e
+
+.theMainHeader {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: $header-height;
+    padding: 0 $spacer;
+    background: #005cb2;
+    color: white;
+    font-weight: bold;
+    //background: linear-gradient( 89.1deg, rgb(8, 158, 96) 0.7%, rgb(19, 150, 204) 88.4% );
+  }
+
+.app_menu {
+    width: 80px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    background-color: #1e88e5;
+    padding: 3.3rem 0 0 0;
+}
+
+.menu_list .list-group-item {
+    background: none;
+    color: white;
+    border: none;
+}
+
+.menu_list .router-link-exact-active{
+    background: #135996c2;
+    color: white;
+}
+.menu_list a:hover {
+    background: #135996c2;
+    color: white;
+}
+
+.bg2-secondary{
+    background-color: #3639396e;
+}
+
+.app__body {
+    padding-left: 80px;
+    padding-right: 0px;
+}
+
+.left-menu {
+    height: 100%;
+    overflow-y: auto;
+    background: #f8f8f8;
+    border-right: 0.5px solid #d9d9d9;
+}
+
+.left-menu .list-group{
+    background: #f8f8f8;
+    border-right: 0.5px solid #d9d9d9;
+}
+
+.left-menu .list-group-item {
+    border: none;
+    background: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ticket-left-menu {
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    margin: 0px;
+    background: #f8f8f8;
+    border-right: 0.5px solid #d9d9d9;
+}
+
+.ticket-left-menu > ul{
+    background: #eff6ff;
+    border: 0.5px solid #d9d9d9;
+    margin: 2px;
+    padding: 0px;
+}
+
+.ticket-left-menu > ul > li {
+    border: none;
+    background: none;
+    margin: 5px 0 0 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.ticket-left-menu > ul > li > a, a:hover{
+    text-decoration: none; 
+}
+
+.ticket-left-menu > ul > li:hover  {
+    background: #adc9e1;
+}
+
+.ticket-left-menu > ul > li.active {
+    background: #adc9e1;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert{
+    margin-bottom: 0.5rem;
+}
+
+.modal-footer {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.card {
+    box-shadow: 0 12px 11px -3px rgba(113,126,195,.25);
+    border: none;
+}
+
+.card .card-header {
+    background-color: #e9eff7; 
+    border-color: white;
+    padding: 0.1rem 1rem 0.1rem 0.2rem !important;
+    color: #303030;
+    border-bottom: 0px;
+}
+
+.card .card-body {
+    padding: 0px;
+}
+
+.no-space {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+//form-group
+
+.form-group{
+    margin-bottom: 0.5rem;
+}
+
+.form-group > label{
+    margin-bottom: 0rem;
+}
+
+.form-group .form-control{
+    padding: 0 5px;
+    height: 2rem;
+}
+
+.left-bar-1{
+    background-color: #fff;
+}
+
+.left-bar-2{
+    background-color: #fefefe;
+}
+
+
+.detail_view_group{
+    background-color: #fff;
+    padding: 15px;
+    height: 100%;
+}
+.app__main{
+    height: -moz-calc(100% - 50px);
+    height: -webkit-calc(100% - 50px);
+    height: calc(100% - 50px);
+}
+
+
+.truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//table
+
+.table-active {
+    background-color: #ffffff;
+}
+
+.table-active > td {
+    padding:0px;
+    background-color: #ffffff;
+}
+
+.table-active > td .form-group {
+    margin-bottom:0px;
+}
+.table-custom-two {
+    // table-layout:fixed; 
+}
+
+.table-custom-two > thead > tr > th {
+    font-size: 0.8rem;
+}
+
+.table-custom-two > tbody > tr > td {
+
+    font-size: 0.9rem;
+    //clear: both;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.id_column {
+    width: 80px;
+}
+
+.id_prior_column {
+    width: 10px;
+ }
+
+.source_name_column {
+    width: 180px;
+ }
+
+.def_xs_column {
+    width: 60px;
+}
+
+.def_sm_column {
+    width: 100px;
+}
+
+.def_md_column {
+    width: 150px;
+}
+
+.alarm_table {
+    font-size: 0.8rem;
+}
+.alarm_table td {
+    padding: 0.1rem !important;
+}
+ .cell_prior_1{
+     background: #651bdc;
+ }
+ .cell_prior_2{
+     background: #f03910;
+ }
+ .cell_prior_3{
+     background: #ffaa0b;
+ }
+ .cell_prior_4{
+     background: #ffef0c;
+ }
+ .cell_prior_5{
+     background: #3eeed7;
+ }
+
+.badge-prior_1{
+    background: #651bdc;
+}
+
+.badge-prior_2{
+    background: #f03910;
+}
+
+.badge-prior_3{
+    background: #ffaa0b;
+}
+
+.badge-prior_4{
+    background: #ffef0c;
+}
+
+.badge-prior_5{
+    background: #3eeed7;
+}
+
+.cell_sev_1{
+    background: rgb(240, 57, 16);
+}
+.cell_sev_2{
+    background: rgb(255, 170, 11);
+}
+.cell_sev_3{
+    background: rgb(255, 239, 12);
+}
+.cell_sev_4{
+    background: rgb(62, 238, 215);
+}
