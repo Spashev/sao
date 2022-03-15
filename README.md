@@ -7,8 +7,8 @@ Docker-compose for Laravel, with postgresql, reddis, nginx and php-fpm
 + `cd sao` to the project directory.
 + `cp .env.example .env` to use env config file
 + Run `docker-compose up -d` to start the containers.
-+ In `sao-php` container install all dependencies with composer `composer install`
-+ In `sao-php` container need start migrations and seeds `php artisan migrate --seed`
++ In `sao-app` container install all dependencies with composer `composer install`
++ In `sao-app` container need start migrations and seeds `php artisan migrate --seed`
 + Install in backend folder node_modules `npm install` 
 + Visit http://localhost to see your Laravel application.
 + Try to connect 127.0.0.1:5432 to access Postgres
