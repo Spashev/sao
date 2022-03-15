@@ -27,9 +27,9 @@ services:
   # --------------------------------------
   # Nginx
   # --------------------------------------
-  sao-app:
+  sao-nginx:
     image: nginx:alpine
-    container_name: sao-app
+    container_name: sao-nginx
     working_dir: /application
     restart: unless-stopped
     volumes:
@@ -44,9 +44,9 @@ services:
   # --------------------------------------
   # Php-fpm
   # --------------------------------------
-  sao-php:
+  sao-app:
     build: docker/php-fpm
-    container_name: sao-php
+    container_name: sao-app
     working_dir: /application
     volumes:
       - ./backend:/application
