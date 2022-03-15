@@ -38,7 +38,7 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - postgres
+      - sao-postgres
     networks:
       - sao_network
   # --------------------------------------
