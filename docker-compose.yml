@@ -3,17 +3,17 @@ services:
   # --------------------------------------
   # Redis
   # --------------------------------------
-  redis:
+  sao-redis:
     image: redis:alpine
-    container_name: redis
+    container_name: sao-redis
   # --------------------------------------
   # Postgres
   # --------------------------------------
-  postgres:
+  sao-postgres:
     image: postgres
-    container_name: postgres
+    container_name: sao-postgres
     volumes:
-        - "./src/postgres:/var/lib/postgresql/data"
+        - "./docker/postgres:/var/lib/postgresql/data"
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -25,13 +25,13 @@ services:
   # --------------------------------------
   # Nginx
   # --------------------------------------
-  webserver:
-    image: nginx:alpine
-    container_name: webserver
+  sao-app:
+    image: nginx
+    container_name: sao-app
     working_dir: /application
     volumes:
-        - ./application:/application
-        - ./src/nginx:/etc/nginx/conf.d
+        - ./backend:/application
+        - ./docker/nginx:/etc/nginx/conf.d
     ports:
       - "80:80"
     depends_on:
@@ -41,17 +41,33 @@ services:
   # --------------------------------------
   # Php-fpm
   # --------------------------------------
-  php-fpm:
-    build: src/php-fpm
-    container_name: php-fpm
+  sao-php:
+    build: docker/php-fpm
+    container_name: sao-php
     working_dir: /application
     volumes:
-      - ./application:/application
-      - ./src/php-fpm/php-local.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+      - ./backend:/application
+      - ./docker/php-fpm/php-local.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
     depends_on:
       - postgres
     networks:
       - sao_network
+  # --------------------------------------
+  # RabbitMQ
+  # --------------------------------------
+  sao-rabbitmq:
+    build:
+      context: .
+      dockerfile: ./docker/rabbitmq/Dockerfile
+    container_name: sao-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "123456789"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "15674:15674"
+      - "5672:5672"
 
 networks:
   sao_network:
