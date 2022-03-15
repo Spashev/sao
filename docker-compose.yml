@@ -52,7 +52,7 @@ services:
       - ./backend:/application
       - ./docker/php-fpm/php-local.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
     depends_on:
-      - postgres
+      - sao-postgres
     networks:
       - sao_network
   # --------------------------------------
